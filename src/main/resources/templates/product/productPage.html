@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Product page</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+          crossorigin="anonymous">
+
+</head>
+<body>
+
+<a th:href="@{/saveproduct}" class="btn btn-primary">Kaydet</a>
+
+
+<table class="table table-dark">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">id</th>
+        <th scope="col">Name</th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="pr : ${list}">
+        <td></td>
+        <td th:text="${pr.id}"></td>
+        <td th:text="${pr.name}"></td>
+        <td><a th:href="@{'/deleteproduct/' + ${pr.id}}" class="btn btn-primary">Sil</a></td>
+    </tr>
+
+    </tbody>
+</table>
+</body>
+</html>
